@@ -1,0 +1,14 @@
+prefix=/Users/lzj/Desktop/FFmepg/freetype-iOS/lib
+exec_prefix=/Users/lzj/Desktop/FFmepg/freetype-iOS/lib
+libdir=/Users/lzj/Desktop/FFmepg/freetype-iOS/lib/lib
+includedir=/Users/lzj/Desktop/FFmepg/freetype-iOS/lib/include
+
+Name: FreeType 2
+URL: http://freetype.org
+Description: A free, high-quality, and portable font engine.
+Version: 20.0.14
+Requires:
+Requires.private: zlib, libpng
+Libs: -L${libdir} -lfreetype
+Libs.private: -lbz2
+Cflags: -I${includedir}/freetype2
