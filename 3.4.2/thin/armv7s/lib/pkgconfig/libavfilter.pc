@@ -1,0 +1,14 @@
+prefix=/Users/lzj/Desktop/Project/FFmpeg-iOS-build-script/3.4.2/thin/armv7s
+exec_prefix=${prefix}
+libdir=/Users/lzj/Desktop/Project/FFmpeg-iOS-build-script/3.4.2/thin/armv7s/lib
+includedir=/Users/lzj/Desktop/Project/FFmpeg-iOS-build-script/3.4.2/thin/armv7s/include
+
+Name: libavfilter
+Description: FFmpeg audio/video filtering library
+Version: 6.107.100
+Requires: libavutil >= 55.78.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavfilter -framework CoreFoundation -framework VideoToolbox -framework CoreMedia -framework CoreVideo -liconv -lx264 -lm -lbz2 -lz -pthread -pthread -framework VideoToolbox -framework CoreImage -framework AVFoundation -framework AudioToolbox
+Libs.private: 
+Cflags: -I${includedir}

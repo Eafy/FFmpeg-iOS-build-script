@@ -22,15 +22,17 @@ X264=`pwd`/x264-iOS         #H.264编码器
 #FDK_AAC=`pwd`/fdk-aac-ios   #AAC第三方解码库
 #FREETYPE=`pwd`/freetype-iOS  #字体引擎库
 
-CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-ffplay --disable-doc --enable-pic --enable-static --disable-shared"
+CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-ffplay --disable-doc --enable-pic --enable-static --disable-shared --disable-asm"
 
 #剪裁参数
-CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-asm --disable-encoders --disable-decoders --disable-demuxers --disable-muxers --disable-parsers --disable-filters\
-    --enable-encoder=h264,aac,libx264,pcm_*\
-    --enable-decoder=h264,aac,pcm_*\
-    --enable-muxer=h264,aac,pcm_*,flv,mp4,avi,flv\
-    --enable-demuxer=h264,aac,pcm_*,flv\
-    --enable-parser=h264,aac"
+CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
+--disable-demuxers --disable-muxers --disable-parsers --disable-filters \
+--enable-encoder=h264,aac,libx264,pcm_*,*jpeg* \
+--enable-decoder=h264,aac,pcm_*,*jpeg* \
+--enable-muxer=h264,aac,pcm_*,flv,mp4,avi \
+--enable-demuxer=h264,aac,pcm_*,flv,mp4,avi \
+--enable-parser=h264,aac,*jpeg* \
+--enable-avfilter --enable-filter=anull"
 
 if [ "$X264" ]
 then

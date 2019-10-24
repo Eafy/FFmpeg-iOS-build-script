@@ -1,0 +1,12 @@
+prefix=
+exec_prefix=
+libdir=${pcfiledir}/../../../libpostproc
+includedir=/Users/lzj/Desktop/Project/FFmpeg-iOS-build-script/3.4.2/ffmpeg-3.4.2
+
+Name: libpostproc
+Description: FFmpeg postprocessing library
+Version: 54.7.100
+Requires:  libavutil >= 55.78.100
+Conflicts:
+Libs: -L${libdir} -Wl,-rpath,${libdir} -lpostproc 
+Cflags: -I${includedir}
