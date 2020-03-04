@@ -21,17 +21,17 @@ rm -rf "$THIN"
 X264=`pwd`/x264-iOS         #H.264编码器
 #FDK_AAC=`pwd`/fdk-aac-ios   #AAC第三方解码库
 #FREETYPE=`pwd`/freetype-iOS  #字体引擎库
+#FREETYPE=`pwd`/freetype-iOS  #opencore-amr-0.1.5
+OPENCORE_AMR=`pwd`/opencore-amr-iOS
 
 CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-ffplay --disable-doc --enable-pic --enable-static --disable-shared --disable-asm"
 
-#剪裁参数
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
---disable-demuxers --disable-muxers --disable-parsers --disable-filters \
---enable-encoder=h264,aac,libx264,pcm_*,*jpeg* \
---enable-decoder=h264,aac,pcm_*,*jpeg* \
+--enable-demuxers --disable-muxers --disable-parsers --disable-filters \
+--enable-encoder=h264,aac,libx264,pcm_*,*jpeg*,libopencore_amrnb \
+--enable-decoder=h264,aac,pcm_*,*jpeg*,amrnb,amrwb \
 --enable-muxer=h264,aac,pcm_*,flv,mp4,avi \
---enable-demuxer=h264,aac,pcm_*,flv,mp4,avi \
---enable-parser=h264,aac,*jpeg* \
+--enable-parser=h264,aac,*jpeg*,mpeg* \
 --enable-avfilter --enable-filter=anull"
 
 if [ "$X264" ]
@@ -49,7 +49,13 @@ then
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-libfreetype"
 fi
 
-ARCHS="armv7 armv7s arm64 x86_64 i386"
+if [ "$OPENCORE_AMR" ]
+then
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb"
+fi
+
+ARCHS="armv7 armv7s arm64 x86_64"
+#ARCHS="arm64"
 
 COMPILE="y"
 LIPO="y"
@@ -148,6 +154,11 @@ then
             CFLAGS="$CFLAGS -I$FREETYPE/include/freetype -I$CWD/libpng-iOS/include"
             LDFLAGS="$LDFLAGS -L$FREETYPE/lib -L$CWD/libpng-iOS/lib -lfreetype -lpng"
         fi
+        if [ "$OPENCORE_AMR" ]
+        then
+            CFLAGS="$CFLAGS -I$OPENCORE_AMR/include"
+            LDFLAGS="$LDFLAGS -L$OPENCORE_AMR/lib"
+        fi
 
 		TMPDIR=${TMPDIR/%\/} $CWD/$SOURCE/configure \
 		    --target-os=darwin \
@@ -183,4 +194,6 @@ then
 	cp -rf $THIN/$1/include $FAT
 fi
 
+rm -rf $SCRATCH
+rm -rf $THIN
 echo "iOS FFmpeg bulid success!"
