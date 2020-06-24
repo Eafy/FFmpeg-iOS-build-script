@@ -1,5 +1,5 @@
 #!/bin/sh
-#armv7xcode9.1,
+#armv7 xcode9.1,
 #sudo xcode-select -switch pathToXcode9.1/Contents/Developer
 #xcode-select --print-path
 
@@ -12,19 +12,20 @@ SOURCE="ffmpeg-$FF_VERSION"
 #输出路径
 FAT="FFmpeg-iOS"
 
-SCRATCH=`pwd`/"scratch"
-THIN=`pwd`/"thin"
+SCRATCH=`pwd`/"scratch-ffmpeg"
+THIN=`pwd`/"thin-ffmpeg"
 #编译之前需要删除临时缓存文件夹，防止和之前编译的或fdk-aac冲突
 rm -rf "$SCRATCH"
 rm -rf "$THIN"
+rm -rf "$FAT"
+rm -rf "ffbuild"
 
 X264=`pwd`/x264-iOS         #H.264编码器
+OPENCORE_AMR=`pwd`/opencore-amr-iOS
 #FDK_AAC=`pwd`/fdk-aac-ios   #AAC第三方解码库
 #FREETYPE=`pwd`/freetype-iOS  #字体引擎库
-#FREETYPE=`pwd`/freetype-iOS  #opencore-amr-0.1.5
-OPENCORE_AMR=`pwd`/opencore-amr-iOS
 
-CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-ffplay --disable-doc --enable-pic --enable-static --disable-shared --disable-asm"
+CONFIGURE_FLAGS="--enable-cross-compile --disable-stripping --disable-debug --disable-programs --disable-ffplay --disable-doc --enable-pic --enable-static --disable-shared --disable-asm"
 
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
 --enable-demuxers --disable-muxers --disable-parsers --disable-filters \
@@ -54,7 +55,7 @@ then
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb"
 fi
 
-ARCHS="armv7 armv7s arm64 x86_64"
+ARCHS="arm64 armv7 armv7s x86_64 i386"
 #ARCHS="arm64"
 
 COMPILE="y"
@@ -158,6 +159,7 @@ then
         then
             CFLAGS="$CFLAGS -I$OPENCORE_AMR/include"
             LDFLAGS="$LDFLAGS -L$OPENCORE_AMR/lib"
+            echo "$LDFLAGS"
         fi
 
 		TMPDIR=${TMPDIR/%\/} $CWD/$SOURCE/configure \

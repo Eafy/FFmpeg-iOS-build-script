@@ -4,7 +4,8 @@
 
 CONFIGURE_FLAGS="--enable-static --enable-pic --disable-cli"
 
-ARCHS="arm64 x86_64 i386 armv7 armv7s"
+ARCHS="arm64 armv7 armv7s x86_64 i386"
+#ARCHS="arm64"
 
 # directories
 SOURCE="x264"
@@ -16,6 +17,10 @@ THIN=`pwd`/"thin-x264"
 
 COMPILE="y"
 LIPO="y"
+
+rm -rf "$SCRATCH"
+rm -rf "$THIN"
+rm -rf "$FAT"
 
 if [ "$*" ]
 then
@@ -42,7 +47,7 @@ then
 		mkdir -p "$SCRATCH/$ARCH"
 		cd "$SCRATCH/$ARCH"
 		CFLAGS="-arch $ARCH"
-                ASFLAGS=
+        ASFLAGS=""
 
 		if [ "$ARCH" = "i386" -o "$ARCH" = "x86_64" ]
 		then
@@ -61,13 +66,13 @@ then
 		    if [ $ARCH = "arm64" ]
 		    then
 		        HOST="--host=aarch64-apple-darwin"
-			XARCH="-arch aarch64"
+                XARCH="-arch aarch64"
 		    else
 		        HOST="--host=arm-apple-darwin"
-			XARCH="-arch arm"
+                XARCH="-arch arm"
 		    fi
-                    CFLAGS="$CFLAGS -mios-version-min=8.0 -fembed-bitcode"
-                    ASFLAGS="$CFLAGS"
+                CFLAGS="$CFLAGS -mios-version-min=8.0 -fembed-bitcode"
+                ASFLAGS="$CFLAGS"
 		fi
 
 		XCRUN_SDK=`echo $PLATFORM | tr '[:upper:]' '[:lower:]'`
@@ -109,4 +114,7 @@ then
 
 	cd $CWD
 	cp -rf $THIN/$1/include $FAT
+    rm -rf $SCRATCH
+    rm -rf $THIN
+    echo "building fat binaries successed"
 fi

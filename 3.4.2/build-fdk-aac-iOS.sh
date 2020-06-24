@@ -3,7 +3,7 @@
 
 CONFIGURE_FLAGS="--enable-static --with-pic=yes --disable-shared"
 
-ARCHS="arm64 x86_64 i386 armv7 armv7s"
+ARCHS="arm64 armv7 x86_64 i386"
 
 # directories
 SOURCE="fdk-aac-0.1.6"

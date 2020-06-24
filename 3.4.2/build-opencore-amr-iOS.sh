@@ -9,9 +9,10 @@ DEST="${CURRENTPATH}/${LIBSRCNAME}-iOS"
 mkdir -p $DEST
 
 DEVELOPER=`xcode-select -print-path`
-ARCHS="i386 x86_64 armv7 armv7s arm64"
+ARCHS="arm64 armv7 armv7s x86_64 i386"
 LIBS="libopencore-amrnb.a libopencore-amrwb.a"
 
+rm -rf "$DEST"
 tar zxvf ${LIBSRCNAME}-${VERSION}.tar.gz -C "${CURRENTPATH}"
 cd "${CURRENTPATH}/${LIBSRCNAME}-${VERSION}"
 
