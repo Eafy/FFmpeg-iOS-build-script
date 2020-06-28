@@ -19,6 +19,6 @@ PS：需要在Xcode 10.1以上，MacOS 10.15以下版本编译；
       >`#需注意Mac和Xcode版本`
    - FFmpeg单平台编译</br>
    编译arm64平台、SDK Min Version 8.0的所有第三方的ffmpeg库：</br>
-   `./build-ffmpeg-iOS.sh arm64 all 8.0`</br>
+   `./build-ffmpeg-iOS.sh arm64 8.0 all`</br>
    编译x86平台、SDK Min Version 8.0的带x264的ffmpeg库：</br>
    `./build-ffmpeg-iOS.sh x86 8.0 x264 yes`</br>
