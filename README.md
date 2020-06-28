@@ -12,7 +12,7 @@ PS：需要在Xcode 10.1以上，MacOS 10.15以下版本编译；
   - 进入对应的版本文件夹，比如*FFmpeg-ios-build-script-master/4.2
   - 修改需要运行的脚本文件权限：chmod -R 777 *.sh
 ### 编译参数说明
-    ./build-ffmpeg-iOS.sh `平台类型` `SDK最低版本` `第三方库是否编译进库` `是否重新编译第三方库` </br>
+    ./build-ffmpeg-iOS.sh `平台类型` `SDK最低版本` `第三方库是否编译进库` `是否重新编译第三方库`
 ### 编译
   - FFmpeg一键编译</br>   
       `./build-ffmpeg-iOS.sh`
