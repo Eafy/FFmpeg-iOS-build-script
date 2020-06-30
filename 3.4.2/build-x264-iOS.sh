@@ -71,8 +71,8 @@ then
 		        HOST="--host=arm-apple-darwin"
                 XARCH="-arch arm"
 		    fi
-                CFLAGS="$CFLAGS -mios-version-min=8.0 -fembed-bitcode"
-                ASFLAGS="$CFLAGS"
+            CFLAGS="$CFLAGS -mios-version-min=8.0 -fembed-bitcode"
+            ASFLAGS="$CFLAGS"
 		fi
 
 		XCRUN_SDK=`echo $PLATFORM | tr '[:upper:]' '[:lower:]'`

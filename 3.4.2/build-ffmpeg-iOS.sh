@@ -21,7 +21,7 @@ rm -rf "$FAT"
 rm -rf "ffbuild"
 
 X264=`pwd`/x264-iOS         #H.264编码器
-OPENCORE_AMR=`pwd`/opencore-amr-iOS
+#OPENCORE_AMR=`pwd`/opencore-amr-iOS
 #FDK_AAC=`pwd`/fdk-aac-ios   #AAC第三方解码库
 #FREETYPE=`pwd`/freetype-iOS  #字体引擎库
 
@@ -122,10 +122,6 @@ then
 		else
 		    PLATFORM="iPhoneOS"
 		    CFLAGS="$CFLAGS -mios-version-min=$DEPLOYMENT_TARGET -fembed-bitcode"
-		    if [ "$ARCH" = "arm64" ]
-		    then
-		        EXPORT="GASPP_FIX_XCODE5=1"
-		    fi
 		fi
 
 		XCRUN_SDK=`echo $PLATFORM | tr '[:upper:]' '[:lower:]'`
@@ -159,7 +155,6 @@ then
         then
             CFLAGS="$CFLAGS -I$OPENCORE_AMR/include"
             LDFLAGS="$LDFLAGS -L$OPENCORE_AMR/lib"
-            echo "$LDFLAGS"
         fi
 
 		TMPDIR=${TMPDIR/%\/} $CWD/$SOURCE/configure \
