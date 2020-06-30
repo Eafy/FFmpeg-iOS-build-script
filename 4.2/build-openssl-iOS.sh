@@ -7,18 +7,17 @@ SRC_VERSION="1.1.1f"
 SRC_NAME="openssl-$SRC_VERSION"
 SRC_PATH="$SHELL_PATH/$SRC_NAME"
 #编译的平台
-ARCHS="arm64 armv7 x86_64 i386"
+ARCHS="arm64 armv7 armv7s x86_64 i386"
 #最低触发的版本
 DEPLOYMENT_TARGET="8.0"
 #输出路径
 PREFIX="$SHELL_PATH/openssl-iOS"
+SRC_BUILD="$SHELL_PATH/openssl-build"
 
 #需要编译的平台
 BUILD_ARCH=$1
 #最低触发的版本
 DEPLOYMENT_TARGET=$2
-
-ARCHS="arm64 armv7 armv7s x86_64 i386"
 
 if [ ! "$BUILD_ARCH" ]
 then
@@ -29,7 +28,7 @@ then
 DEPLOYMENT_TARGET="8.0"
 fi
 
-rm -rf "$SRC_PATH" "$PREFIX"
+rm -rf "$SRC_PATH" "$SRC_BUILD"
 #下载资源包
 if [ ! -r $SRC_NAME ]
 then
@@ -43,7 +42,7 @@ then
     tar zxvf $SHELL_PATH/$SRC_TAR_NAME --strip-components 1 -C $SRC_PATH || exit 1
 fi
 
-CC=$(xcrun --find clang)
+XCRUN=$(xcrun --find clang)
 IOS_SDK_PATH=$(xcrun -sdk iphoneos --show-sdk-path)
 IOS_CROSS_TOP=${IOS_SDK_PATH//\/SDKs*/}
 IOS_CROSS_SDK=${IOS_SDK_PATH##*/}
@@ -55,7 +54,8 @@ for ARCH in $ARCHS
 do
     if [ "$BUILD_ARCH" = "all" -o "$BUILD_ARCH" = "$ARCH" ]
     then
-        cd $SRC_PATH
+        mkdir -p "$SRC_BUILD/$ARCH"
+        cd "$SRC_BUILD/$ARCH"
         echo "building $ARCH..."
 
         CONFIGURE_FLAGS="no-shared"
@@ -64,12 +64,12 @@ do
         then
             CROSS_TOP=$IOS_SIMULATOR_CROSS_TOP
             CROSS_SDK=$IOS_SIMULATOR_CROSS_SDK
-            if [ "$ARCH" = "i386" ]
+            if [ "$ARCH" = "x86_64" ]
             then
                 CONFIGURE_FLAGS="$CONFIGURE_FLAGS no-asm"
             fi
         else
-            if [ "$ARCH" == "arm64" -o "$ARCH" == "armv7" ]
+            if [ "$ARCH" == "arm64" -o "$ARCH" == "armv7" -o "$ARCH" == "armv7s" ]
             then
                 CROSS_TOP=$IOS_CROSS_TOP
                 CROSS_SDK=$IOS_CROSS_SDK
@@ -79,41 +79,31 @@ do
 
         export CROSS_TOP
         export CROSS_SDK
-        export CC="$CC -arch $ARCH $CFLAGS"
+        export CC="$XCRUN -arch $ARCH $CFLAGS"
 
         echo CROSS_TOP=$CROSS_TOP
         echo CROSS_SDK=$CROSS_SDK
         echo CC=$CC
-        echo prefix=$PREFIX/$ARCH
 
         $SRC_PATH/Configure \
             iphoneos-cross \
-            --prefix=$PREFIX/$ARCH \
+            --prefix=$SRC_BUILD/$ARCH \
             $CONFIGURE_FLAGS
         make -j3
-        make install -j3
-
-        mkdir $PREFIX/$ARCH/lib
-        cp *.a $PREFIX/$ARCH/lib
-        cp -rf include $PREFIX
-        make clean
-
-        unset CC
-        unset CROSS_SDK
-        unset CROSS_TOP
+        make install_sw -j3
     fi
 done
 
 echo "building lipo lib binaries..."
 mkdir -p $PREFIX/lib
 set - $ARCHS
-cd $PREFIX/$1/lib
+cd $SRC_BUILD/$1
 for LIB in *.a
 do
-    cd $SHELL_PATH
-    lipo -create `find $PREFIX -name $LIB` -output $PREFIX/lib/$LIB
+    lipo -create `find $SRC_BUILD -name $LIB` -output $PREFIX/lib/$LIB
 done
 
 cd $SHELL_PATH
-cp -rf $PREFIX/$1/include $PREFIX
+cp -rf $SRC_BUILD/$1/include $PREFIX
+rm -rf $SRC_BUILD
 echo "building lipo openssl lib binaries successed"

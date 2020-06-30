@@ -54,7 +54,7 @@ for arch in $ARCHS; do
     *)
         echo "Building opencore-amr for iPhoneSimulator $arch *****************"
         PATH=`xcodebuild -version -sdk iphonesimulator PlatformPath`"/Developer/usr/bin:$PATH" \
-        CXX="xcrun --sdk iphonesimulator clang++ -arch $arch $IOSMV  -fembed-bitcode" \
+        CXX="xcrun --sdk iphonesimulator clang++ -arch $arch $IOSMV -fembed-bitcode" \
         ./configure \
         --host=$arch \
         --prefix=$DEST \

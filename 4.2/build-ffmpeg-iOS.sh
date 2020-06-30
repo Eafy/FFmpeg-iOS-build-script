@@ -10,7 +10,7 @@ SRC_PATH="$SHELL_PATH/$SRC_NAME"
 ARCHS="arm64 armv7 armv7s x86_64 i386"
 #输出路径
 PREFIX="$SHELL_PATH/FFmpeg-iOS"
-SRC_SCRATCH="$SHELL_PATH/FFmpeg-build"
+SRC_BUILD="$SHELL_PATH/FFmpeg-build"
 
 #需要编译的平台
 BUILD_ARCH=$1
@@ -103,7 +103,7 @@ then
         || exit 1
 fi
 
-rm -rf "$PREFIX" "$SRC_SCRATCH"
+rm -rf "$PREFIX" "$SRC_BUILD"
 #检测并下载资源包
 if [ ! -r $SRC_NAME ]
 then
@@ -123,8 +123,8 @@ do
     if [ "$BUILD_ARCH" = "all" -o "$BUILD_ARCH" = "$ARCH" ]
     then
         echo "building $ARCH..."
-        mkdir -p "$SRC_SCRATCH/$ARCH"
-        cd "$SRC_SCRATCH/$ARCH"
+        mkdir -p "$SRC_BUILD/$ARCH"
+        cd "$SRC_BUILD/$ARCH"
 
         CFLAGS="-arch $ARCH -fno-stack-check"
         if [ "$ARCH" = "i386" -o "$ARCH" = "x86_64" ]
@@ -191,7 +191,7 @@ do
             $CONFIGURE_FLAGS \
             --extra-cflags="$CFLAGS" \
             --extra-ldflags="$LDFLAGS" \
-            --prefix="$SRC_SCRATCH/$ARCH" \
+            --prefix="$SRC_BUILD/$ARCH" \
         || exit 1
 
         make -j3 install $EXPORT || exit 1
@@ -202,15 +202,14 @@ done
 echo "building lipo ffmpeg lib binaries..."
 mkdir -p $PREFIX/lib
 set - $ARCHS
-cd $SRC_SCRATCH/$1/lib
+cd $SRC_BUILD/$1/lib
 for LIB in *.a
 do
     cd $SHELL_PATH
-    lipo -create `find $SRC_SCRATCH -name $LIB` -output $PREFIX/lib/$LIB || exit 1
+    lipo -create `find $SRC_BUILD -name $LIB` -output $PREFIX/lib/$LIB || exit 1
 done
 
 cd $SHELL_PATH
-cp -rf $SRC_SCRATCH/$1/include $PREFIX
-rm -rf $SCRATCH
-rm -rf $SRC_SCRATCH
+cp -rf $SRC_BUILD/$1/include $PREFIX
+rm -rf $SRC_BUILD
 echo "building lipo ffmpeg lib binaries successed"
