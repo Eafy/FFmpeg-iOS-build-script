@@ -5,7 +5,6 @@
 CONFIGURE_FLAGS="--enable-static --enable-pic --disable-cli"
 
 ARCHS="arm64 armv7 armv7s x86_64 i386"
-#ARCHS="arm64"
 
 # directories
 SOURCE="x264"

@@ -9,7 +9,7 @@ SRC_VERSION="20180426"
 SRC_NAME="x264-$SRC_VERSION"
 SRC_PATH="$SHELL_PATH/$SRC_NAME"
 #编译的平台
-ARCHS="arm64 armv7 x86_64 i386"
+ARCHS="arm64 armv7 armv7s x86_64 i386"
 #输出路径
 PREFIX="$SHELL_PATH/x264-iOS"
 
@@ -17,8 +17,6 @@ PREFIX="$SHELL_PATH/x264-iOS"
 BUILD_ARCH=$1
 #最低触发的版本
 DEPLOYMENT_TARGET=$2
-
-ARCHS="arm64 armv7 armv7s x86_64 i386"
 
 CONFIGURE_FLAGS="--enable-static --enable-pic --disable-cli"
 
@@ -66,7 +64,7 @@ do
                 HOST=
             else
                 CFLAGS="$CFLAGS -mios-simulator-version-min=$DEPLOYMENT_TARGET"
-            HOST="--host=x86_64-apple-darwin"
+                HOST="--host=i386-apple-darwin"
             fi
         else
             PLATFORM="iPhoneOS"
@@ -92,7 +90,7 @@ do
         fi
         CXXFLAGS="$CFLAGS"
         LDFLAGS="$CFLAGS"
-        echo CC=$CC
+        echo "CXXFLAGS=$CXXFLAGS"
 
         CC=$CC $SRC_PATH/configure \
             $CONFIGURE_FLAGS \
