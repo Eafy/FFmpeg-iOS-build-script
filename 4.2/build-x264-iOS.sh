@@ -30,7 +30,6 @@ if [ ! "$DEPLOYMENT_TARGET" ]
 then
 DEPLOYMENT_TARGET="8.0"
 fi
-fi
 
 SRC_SCRATCH="$SHELL_PATH/scratch-x264"
 SRC_THIN="$SHELL_PATH/thin-x264"
@@ -55,7 +54,7 @@ do
         echo "building $ARCH..."
         mkdir -p "$SRC_SCRATCH/$ARCH"
         cd "$SRC_SCRATCH/$ARCH"
-        CFLAGS="-arch $ARCH -fno-stack-check"
+        CFLAGS="-arch $ARCH"
         ASFLAGS=""
 
         if [ "$ARCH" = "i386" -o "$ARCH" = "x86_64" ]
