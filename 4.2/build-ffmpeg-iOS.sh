@@ -117,6 +117,9 @@ then
     tar zxvf $SHELL_PATH/$SRC_TAR_NAME --strip-components 1 -C $SRC_PATH || exit 1
 fi
 
+#部分第三方开需要打补丁修改配置文件
+sh $SHELL_PATH/build-ffmpeg-patch.sh $SRC_PATH
+
 #开始编译
 for ARCH in $ARCHS
 do
@@ -126,7 +129,7 @@ do
         mkdir -p "$SRC_BUILD/$ARCH"
         cd "$SRC_BUILD/$ARCH"
 
-        CFLAGS="-arch $ARCH -fno-stack-check"
+        CFLAGS="-arch $ARCH"
         if [ "$ARCH" = "i386" -o "$ARCH" = "x86_64" ]
         then
             PLATFORM="iPhoneSimulator"

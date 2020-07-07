@@ -12,7 +12,7 @@ DEST="${CURRENTPATH}/${LIBSRCNAME}-iOS"
 mkdir -p $DEST
 
 DEVELOPER=`xcode-select -print-path`
-ARCHS="arm64 armv7 x86_64 i386"
+ARCHS="arm64 armv7 armv7s x86_64 i386"
 LIBS="libopencore-amrnb.a libopencore-amrwb.a"
 
 if [ ! -r $SRC_PATH ]
