@@ -1,6 +1,5 @@
 # FFmpeg-iOS-build-script
 iOS平台编译FFmpeg的脚本，可能包含多个FFmpeg版本，不同版本可能支持不同的第三方库等。</br>
-PS：需要在Xcode 10.1以上，MacOS 10.15以下版本编译；
 
 ## FFpmeg 3.4.2:
 支持x264、fdk-aac、freetype字库、opencore-amr，封板代码进行了裁减。</br>
@@ -16,9 +15,10 @@ PS：需要在Xcode 10.1以上，MacOS 10.15以下版本编译；
 ### 编译
   - FFmpeg一键编译</br>   
       `./build-ffmpeg-iOS.sh`
+      
       >`#需注意Mac和Xcode版本`
    - FFmpeg单平台编译</br>
-   编译arm64平台、SDK Min Version 8.0的所有第三方的ffmpeg库：</br>
-   `./build-ffmpeg-iOS.sh arm64 8.0 all`</br>
-   编译x86平台、SDK Min Version 8.0的带x264的ffmpeg库：</br>
-   `./build-ffmpeg-iOS.sh x86 8.0 x264 yes`</br>
+      编译arm64平台、SDK Min Version 8.0的所有第三方的ffmpeg库：</br>
+      `./build-ffmpeg-iOS.sh arm64 8.0 all`</br>
+      编译x86平台、SDK Min Version 8.0的带x264的ffmpeg库：</br>
+      `./build-ffmpeg-iOS.sh x86 8.0 x264 yes`</br>
