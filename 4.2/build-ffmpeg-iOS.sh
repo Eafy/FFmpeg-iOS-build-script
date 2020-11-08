@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#···············支持的平台·初版版本·第三方库·是否重新编译第三方库
+#./build-ffmpeg-iOS.sh all 9.0 all yes
+
 SHELL_PATH=`pwd`
 #需要编译FFpmeg版本号
 SRC_VERSION="4.2"
@@ -26,19 +29,19 @@ CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --dis
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
 --disable-muxers --disable-parsers --disable-filters \
 --enable-encoder=h264,aac,libx264,pcm_*,*jpeg*,libopencore_amrnb \
---enable-decoder=h264,aac,pcm_*,*jpeg*,amrnb,amrwb \
+--enable-decoder=h264,aac,pcm_*,*jpeg*,amrnb,amrwb,hevc \
 --enable-muxer=h264,aac,pcm_*,flv,mp4,avi \
---enable-parser=h264,aac,*jpeg*,mpeg* \
+--enable-parser=h264,aac,*jpeg*,mpeg*,hevc \
 --enable-avfilter --enable-filter=anull"
 #CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-demuxers --enable-demuxer="
-
+  
 if [ ! "$BUILD_ARCH" ]
 then
 BUILD_ARCH="all"
 fi
 if [ ! "$DEPLOYMENT_TARGET" ]
 then
-DEPLOYMENT_TARGET="8.0"
+DEPLOYMENT_TARGET="9.0"
 fi
 if [ ! "$BUILD_THIRD_LIB" ]
 then
@@ -54,7 +57,7 @@ if [ "$BUILD_THIRD_LIB" = "x264" ] || [ "$BUILD_THIRD_LIB" = "all" ]
 then
     if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]    #是否重新编译x264的库
     then
-        sh $SHELL_PATH/build-x264-iOS.sh
+        sh $SHELL_PATH/build-x264-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
     fi
     X264=$SHELL_PATH/x264-iOS
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-gpl --enable-libx264"
@@ -64,7 +67,7 @@ if [ "$BUILD_THIRD_LIB" = "opencoreamr" ] || [ "$BUILD_THIRD_LIB" = "all" ]
 then
     if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
     then
-        sh $SHELL_PATH/build-opencore-amr-iOS.sh
+        sh $SHELL_PATH/build-opencore-amr-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
     fi
     OPENCORE_AMR=$SHELL_PATH/opencore-amr-iOS
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb"
@@ -74,7 +77,7 @@ if [ "$BUILD_THIRD_LIB" = "openssl" ] || [ "$BUILD_THIRD_LIB" = "all" ]
 then
     if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
     then
-        sh $SHELL_PATH/build-openssl-iOS.sh
+        sh $SHELL_PATH/build-openssl-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
     fi
     OPENSSL=$SHELL_PATH/openssl-iOS
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-nonfree --enable-openssl"

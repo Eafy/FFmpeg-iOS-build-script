@@ -9,7 +9,7 @@ SRC_PATH="$SHELL_PATH/$SRC_NAME"
 #编译的平台
 ARCHS="arm64 armv7 armv7s x86_64 i386"
 #最低触发的版本
-DEPLOYMENT_TARGET="8.0"
+DEPLOYMENT_TARGET="9.0"
 #输出路径
 PREFIX="$SHELL_PATH/openssl-iOS"
 SRC_BUILD="$SHELL_PATH/openssl-build"
@@ -25,7 +25,7 @@ BUILD_ARCH="all"
 fi
 if [ ! "$DEPLOYMENT_TARGET" ]
 then
-DEPLOYMENT_TARGET="8.0"
+DEPLOYMENT_TARGET="9.0"
 fi
 
 rm -rf "$SRC_PATH" "$SRC_BUILD"

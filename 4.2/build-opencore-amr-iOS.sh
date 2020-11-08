@@ -11,9 +11,24 @@ SRC_PATH=$CURRENTPATH/$LIBSRCNAME-$VERSION
 DEST="${CURRENTPATH}/${LIBSRCNAME}-iOS"
 mkdir -p $DEST
 
+#需要编译的平台
+BUILD_ARCH=$1
+#最低触发的版本
+DEPLOYMENT_TARGET=$2
+
 DEVELOPER=`xcode-select -print-path`
-ARCHS="arm64 armv7 armv7s x86_64 i386"
 LIBS="libopencore-amrnb.a libopencore-amrwb.a"
+
+if [ ! "$BUILD_ARCH" ]
+then
+ARCHS="arm64 armv7 armv7s x86_64 i386"
+else
+ARCHS=$BUILD_ARCH
+fi
+if [ ! "$DEPLOYMENT_TARGET" ]
+then
+DEPLOYMENT_TARGET="9.0"
+fi
 
 if [ ! -r $SRC_PATH ]
 then
@@ -34,7 +49,7 @@ cd "${CURRENTPATH}/${LIBSRCNAME}-${VERSION}"
 
 for arch in $ARCHS; do
     make clean
-    IOSMV=" -miphoneos-version-min=8.0"
+    IOSMV=" -miphoneos-version-min=$DEPLOYMENT_TARGET"
     case $arch in
     arm*)
         if [ $arch == "arm64" ]

@@ -1,10 +1,12 @@
 #!/bin/sh
 #http://download.videolan.org/pub/videolan/x264/snapshots/
-#version:x264-snapshot-20180426-2245.tar.bz2
+#version:x264-snapshot-20191212-2245.tar.bz2
+
+#若提示编译错误：Found no assembler，Minimum version is NASM version：2.13，下载安装：http://www.nasm.us/pub/nasm/releasebuilds/2.13.03/nasm-2.13.03.tar.xz
 
 SHELL_PATH=`pwd`
 #需要编译的版本号
-SRC_VERSION="20180426"
+SRC_VERSION="20191212"
 #资源文件/文件夹名称
 SRC_NAME="x264-$SRC_VERSION"
 SRC_PATH="$SHELL_PATH/$SRC_NAME"
@@ -26,7 +28,7 @@ BUILD_ARCH="all"
 fi
 if [ ! "$DEPLOYMENT_TARGET" ]
 then
-DEPLOYMENT_TARGET="8.0"
+DEPLOYMENT_TARGET="9.0"
 fi
 
 SRC_SCRATCH="$SHELL_PATH/scratch-x264"
