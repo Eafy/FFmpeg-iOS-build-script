@@ -29,7 +29,7 @@ CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --dis
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
 --disable-muxers --disable-parsers --disable-filters --disable-demuxers \
 --enable-demuxer=h264,aac,hevc,pcm*,flv,hls,mp3,avi \
---enable-encoder=h264,aac,libx264,pcm_*,libopencore_amrnb \
+--enable-encoder=h264,aac,libx264,pcm_*,libopencore_amr* \
 --enable-decoder=h264,aac,pcm*,amrnb,amrwb,hevc \
 --enable-muxer=h264,aac,pcm*,flv,mp4,avi \
 --enable-parser=h264,aac,hevc \
@@ -62,6 +62,7 @@ then
     X264=$SHELL_PATH/x264-iOS
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-gpl --enable-libx264"
 fi
+
 #是否编译opencore-amr
 if [ "$BUILD_THIRD_LIB" = "opencoreamr" ] || [ "$BUILD_THIRD_LIB" = "all" ]
 then
@@ -72,6 +73,7 @@ then
     OPENCORE_AMR=$SHELL_PATH/opencore-amr-iOS
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb"
 fi
+
 #是否编译openssl
 if [ "$BUILD_THIRD_LIB" = "openssl" ] || [ "$BUILD_THIRD_LIB" = "all" ]
 then
@@ -139,8 +141,8 @@ do
             CFLAGS="$CFLAGS -mios-simulator-version-min=$DEPLOYMENT_TARGET"
         else
             PLATFORM="iPhoneOS"
-#            CFLAGS="$CFLAGS -mios-version-min=$DEPLOYMENT_TARGET-fembed-bitcode"
-            CFLAGS="$CFLAGS -mios-version-min=$DEPLOYMENT_TARGET"
+            CFLAGS="$CFLAGS -mios-version-min=$DEPLOYMENT_TARGET -fembed-bitcode"
+#            CFLAGS="$CFLAGS -mios-version-min=$DEPLOYMENT_TARGET"
             if [ "$ARCH" = "arm64" ]
             then
                 EXPORT="GASPP_FIX_XCODE5=1"
