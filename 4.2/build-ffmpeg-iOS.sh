@@ -27,13 +27,13 @@ BUILD_THIRD_LIB_COMPILE=$4
 CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-ffplay --disable-doc --enable-pic --enable-static --disable-shared --disable-asm"
 
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
---disable-muxers --disable-parsers --disable-filters --disable-demuxers \
---enable-demuxer=h264,aac,hevc,pcm*,flv,hls,mp3,avi \
+--disable-muxers --disable-parsers --disable-filters \
 --enable-encoder=h264,aac,libx264,pcm_*,libopencore_amr* \
---enable-decoder=h264,aac,pcm*,amrnb,amrwb,hevc \
+--enable-decoder=h264,aac,pcm*,amrnb,amrwb,hevc,mjpeg \
 --enable-muxer=h264,aac,pcm*,flv,mp4,avi \
 --enable-parser=h264,aac,hevc \
 --enable-avfilter --enable-filter=anull"
+#--disable-demuxers --enable-demuxer=h264,aac,hevc,pcm*,flv,hls,mp3,avi \
   
 if [ ! "$BUILD_ARCH" ]
 then
