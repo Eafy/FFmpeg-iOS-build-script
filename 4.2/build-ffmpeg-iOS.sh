@@ -24,16 +24,16 @@ BUILD_THIRD_LIB=$3
 #是否重新编译第三方库
 BUILD_THIRD_LIB_COMPILE=$4
 
-CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-ffplay --disable-doc --enable-pic --enable-static --disable-shared --disable-asm"
+CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-ffplay --disable-doc --enable-pic --enable-static --disable-shared --disable-asm --enable-hwaccels --enable-postproc"
 
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
---disable-muxers --disable-parsers --disable-filters --disable-demuxers \
---enable-demuxer=h264,aac,hevc,pcm*,flv,hls,mp3,avi \
---enable-encoder=h264,aac,libx264,pcm_*,libopencore_amrnb \
---enable-decoder=h264,aac,pcm*,amrnb,amrwb,hevc \
---enable-muxer=h264,aac,pcm*,flv,mp4,avi \
---enable-parser=h264,aac,hevc \
+--disable-muxers --disable-parsers --disable-filters \
+--enable-encoder=h264,aac,libx264,pcm_*,*jpeg*,libopencore_amrnb \
+--enable-decoder==h264,aac,pcm*,*jpeg*,amr*,hevc \
+--enable-muxer=h264,aac,pcm*,flv,mp4,avi,mp3,amr \
+--enable-parser=h264,aac,hevc,mpeg4video,*jpeg*,mpeg* \
 --enable-avfilter --enable-filter=anull"
+#--disable-demuxers --enable-demuxer=h264,aac,hevc,pcm*,flv,hls,mp3,avi,hls,amr*,mpeg* \
   
 if [ ! "$BUILD_ARCH" ]
 then
@@ -73,15 +73,15 @@ then
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb"
 fi
 #是否编译openssl
-if [ "$BUILD_THIRD_LIB" = "openssl" ] || [ "$BUILD_THIRD_LIB" = "all" ]
-then
-    if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
-    then
-        sh $SHELL_PATH/build-openssl-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
-    fi
-    OPENSSL=$SHELL_PATH/openssl-iOS
-    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-nonfree --enable-openssl"
-fi
+#if [ "$BUILD_THIRD_LIB" = "openssl" ] || [ "$BUILD_THIRD_LIB" = "all" ]
+#then
+#    if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
+#    then
+#        sh $SHELL_PATH/build-openssl-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
+#    fi
+#    OPENSSL=$SHELL_PATH/openssl-iOS
+#    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-nonfree --enable-openssl"
+#fi
 
 #检测并安装yasm
 if [ ! `which yasm` ]
