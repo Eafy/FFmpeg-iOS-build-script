@@ -28,7 +28,7 @@ CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --dis
 
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
 --disable-muxers --disable-parsers --disable-filters \
---enable-encoder=h264,aac,libx264,pcm_*,*jpeg*,libopencore_amrnb \
+--enable-encoder=h264,aac,libx264,pcm_*,*jpeg*\
 --enable-decoder==h264,aac,pcm*,*jpeg*,amr*,hevc \
 --enable-muxer=h264,aac,pcm*,flv,mp4,avi,mp3,amr \
 --enable-parser=h264,aac,hevc,mpeg4video,*jpeg*,mpeg* \
@@ -70,7 +70,7 @@ then
         sh $SHELL_PATH/build-opencore-amr-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
     fi
     OPENCORE_AMR=$SHELL_PATH/opencore-amr-iOS
-    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb"
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-encoder=libopencore-amrnb,libopencore-amrwb"
 fi
 #是否编译openssl
 #if [ "$BUILD_THIRD_LIB" = "openssl" ] || [ "$BUILD_THIRD_LIB" = "all" ]
