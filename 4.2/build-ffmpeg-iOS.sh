@@ -12,8 +12,8 @@ SRC_PATH="$SHELL_PATH/$SRC_NAME"
 #编译的平台
 ARCHS="arm64 armv7 armv7s x86_64 i386"
 #输出路径
-PREFIX="$SHELL_PATH/FFmpeg-iOS"
-SRC_BUILD="$SHELL_PATH/FFmpeg-build"
+PREFIX="$SHELL_PATH/ffmpeg-iOS"
+SRC_BUILD="$SHELL_PATH/ffmpeg-build"
 
 #需要编译的平台
 BUILD_ARCH=$1
@@ -28,7 +28,7 @@ CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --dis
 
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
 --disable-muxers --disable-parsers --disable-filters \
---enable-encoder=h264,aac,libx264,pcm_*,*jpeg*\
+--enable-encoder=h264,aac,libx264,pcm_*,*jpeg* \
 --enable-decoder==h264,aac,pcm*,*jpeg*,amr*,hevc \
 --enable-muxer=h264,aac,pcm*,flv,mp4,avi,mp3,amr \
 --enable-parser=h264,aac,hevc,mpeg4video,*jpeg*,mpeg* \
@@ -62,6 +62,7 @@ then
     X264=$SHELL_PATH/x264-iOS
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-gpl --enable-libx264"
 fi
+
 #是否编译opencore-amr
 if [ "$BUILD_THIRD_LIB" = "opencoreamr" ] || [ "$BUILD_THIRD_LIB" = "all" ]
 then
@@ -70,18 +71,19 @@ then
         sh $SHELL_PATH/build-opencore-amr-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
     fi
     OPENCORE_AMR=$SHELL_PATH/opencore-amr-iOS
-    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-encoder=libopencore-amrnb,libopencore-amrwb"
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-encoder=libopencore_amrnb"
 fi
+
 #是否编译openssl
-#if [ "$BUILD_THIRD_LIB" = "openssl" ] || [ "$BUILD_THIRD_LIB" = "all" ]
-#then
-#    if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
-#    then
-#        sh $SHELL_PATH/build-openssl-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
-#    fi
-#    OPENSSL=$SHELL_PATH/openssl-iOS
-#    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-nonfree --enable-openssl"
-#fi
+if [ "$BUILD_THIRD_LIB" = "openssl" ] || [ "$BUILD_THIRD_LIB" = "all" ]
+then
+    if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
+    then
+        sh $SHELL_PATH/build-openssl-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
+    fi
+    OPENSSL=$SHELL_PATH/openssl-iOS
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-nonfree --enable-openssl"
+fi
 
 #检测并安装yasm
 if [ ! `which yasm` ]
