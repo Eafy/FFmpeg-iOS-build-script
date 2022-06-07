@@ -29,8 +29,8 @@ CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --dis
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
 --disable-muxers --disable-parsers --disable-filters \
 --enable-encoder=h264,aac,libx264,pcm_*,*jpeg* \
---enable-decoder==h264,aac,pcm*,*jpeg*,amr*,hevc \
---enable-muxer=h264,aac,pcm*,flv,mp4,avi,mp3,amr \
+--enable-decoder==h264,aac,pcm*,*jpeg*,hevc \
+--enable-muxer=h264,aac,pcm*,flv,mp4,avi,mp3 \
 --enable-parser=h264,aac,hevc,mpeg4video,*jpeg*,mpeg* \
 --enable-avfilter --enable-filter=anull"
 #--disable-demuxers --enable-demuxer=h264,aac,hevc,pcm*,flv,hls,mp3,avi,hls,amr*,mpeg* \
@@ -71,7 +71,7 @@ then
         sh $SHELL_PATH/build-opencore-amr-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
     fi
     OPENCORE_AMR=$SHELL_PATH/opencore-amr-iOS
-    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-encoder=libopencore_amrnb"
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-version3 --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-encoder=libopencore_amrnb --enable-decoder=*amr* --enable-muxer=amr"
 fi
 
 #是否编译openssl
@@ -83,6 +83,17 @@ then
     fi
     OPENSSL=$SHELL_PATH/openssl-iOS
     CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-nonfree --enable-openssl"
+fi
+
+#是否编译speex
+if [ "$BUILD_THIRD_LIB" = "speex" ] || [ "$BUILD_THIRD_LIB" = "all" ]
+then
+    if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
+    then
+        sh $SHELL_PATH/build-speex-iOS.sh
+    fi
+    SPEEX=$SHELL_PATH/speex-iOS
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-libspeex --enable-encoder=libspeex --enable-decoder=libspeex"
 fi
 
 #检测并安装yasm
@@ -185,6 +196,11 @@ do
         then
             CFLAGS="$CFLAGS -I$OPENSSL/include"
             LDFLAGS="$LDFLAGS -L$OPENSSL/lib"
+        fi
+        if [ "$SPEEX" ]
+        then
+            CFLAGS="$CFLAGS -I$SPEEX/include"
+            LDFLAGS="$LDFLAGS -L$SPEEX/lib"
         fi
         echo CC=$CC
 
