@@ -160,8 +160,6 @@ done
 echo "SPEEX_LIPO_PATH=$SPEEX_LIPO_PATH"
 lipo -create $SPEEX_LIPO_PATH -output $ZJ_SAVE_DIR/Speex/lib/libspeex.a
 cp -r $ZJ_SPEEX_DIR/Speex-arm64/include $ZJ_SAVE_DIR/Speex
-cp -rf $ZJ_SAVE_DIR/Speex $(dirname $ZJ_SAVE_DIR)/speex-iOS
-exit
 
 ##############SPEEXDSP#####################
 if [ ! $ZJ_SPEEXDSP_VERSION ];then
