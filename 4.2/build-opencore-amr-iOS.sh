@@ -21,7 +21,7 @@ LIBS="libopencore-amrnb.a libopencore-amrwb.a"
 
 if [ ! "$BUILD_ARCH" ]
 then
-ARCHS="arm64 armv7 armv7s x86_64 i386"
+ARCHS="arm64 x86_64"
 else
 ARCHS=$BUILD_ARCH
 fi

@@ -1,0 +1,302 @@
+dtx_enc.lo: \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/enc/src/dtx_enc.cpp \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/enc/src/dtx_enc.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h \
+  ../oscl/oscl_base_macros.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gsm_amr_typedefs.h \
+  ../oscl/oscl_base.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/stdint.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/stdint.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_int8_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_int16_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_int32_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_int64_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uint8_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uint16_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uint32_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uint64_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/cdefs.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_symbol_aliasing.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_posix_availability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_pthread/_pthread_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_intptr_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_u_int8_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_u_int16_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_u_int32_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_u_int64_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_uintptr_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_intmax_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uintmax_t.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/cnst.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/q_plsf.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gc_pred.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/dtx_common_def.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/basic_op.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/basicop_malloc.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/basic_op_c_equivalent.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/add.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/div_s.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/l_shr_r.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mult_r.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/norm_l.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/norm_s.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/round.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/shr_r.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/sub.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/shr.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/l_negate.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/l_extract.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/log2.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/log2_norm.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/lsp_lsf.h \
+  ../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/reorder.h \
+  ../oscl/oscl_mem.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/stdlib.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/Availability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/AvailabilityVersions.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/AvailabilityInternal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/wait.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_pid_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_id_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/signal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/appleapiopts.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/signal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/signal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/_mcontext.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/_mcontext.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/mach/machine/_structs.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/mach/i386/_structs.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_pthread/_pthread_attr_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_sigaltstack.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_ucontext.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_sigset_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_size_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_uid_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_timeval.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/endian.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/endian.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_endian.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/libkern/_OSByteOrder.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/libkern/i386/_OSByteOrder.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/alloca.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_ct_rune_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_rune_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_wchar_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_null.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/malloc/_malloc.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_dev_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_mode_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/string.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_ssize_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/strings.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/secure/_strings.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/secure/_common.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/secure/_string.h
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/enc/src/dtx_enc.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h:
+
+../oscl/oscl_base_macros.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gsm_amr_typedefs.h:
+
+../oscl/oscl_base.h:
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/stdint.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/stdint.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_int8_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_int16_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_int32_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_int64_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uint8_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uint16_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uint32_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uint64_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/cdefs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_symbol_aliasing.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_posix_availability.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_pthread/_pthread_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_intptr_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_u_int8_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_u_int16_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_u_int32_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_u_int64_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_uintptr_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_intmax_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types/_uintmax_t.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/cnst.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/q_plsf.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gc_pred.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/dtx_common_def.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/basic_op.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/basicop_malloc.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/basic_op_c_equivalent.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/add.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/div_s.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/l_shr_r.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mult_r.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/norm_l.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/norm_s.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/round.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/shr_r.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/sub.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/shr.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/l_negate.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/l_extract.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/log2.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/log2_norm.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/lsp_lsf.h:
+
+../opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/reorder.h:
+
+../oscl/oscl_mem.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/stdlib.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/Availability.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/AvailabilityVersions.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/AvailabilityInternal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/wait.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_pid_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_id_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/signal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/appleapiopts.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/signal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/signal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/_mcontext.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/_mcontext.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/mach/machine/_structs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/mach/i386/_structs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_sigaltstack.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_ucontext.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_sigset_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_size_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_uid_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/resource.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_timeval.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/machine/endian.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/i386/endian.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_endian.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/libkern/_OSByteOrder.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/libkern/i386/_OSByteOrder.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/alloca.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_ct_rune_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_rune_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_wchar_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_null.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/malloc/_malloc.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_dev_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_mode_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/string.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/sys/_types/_ssize_t.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/strings.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/secure/_strings.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/secure/_common.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator16.0.sdk/usr/include/secure/_string.h:

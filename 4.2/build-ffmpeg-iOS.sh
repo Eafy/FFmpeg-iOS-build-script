@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #···············支持的平台·初版版本·第三方库·是否重新编译第三方库
-#./build-ffmpeg-iOS.sh all 9.0 all yes
+#./build-ffmpeg-iOS.sh all 11.0 all yes
 
 SHELL_PATH=`pwd`
 #需要编译FFpmeg版本号
@@ -10,7 +10,7 @@ SRC_VERSION="4.2"
 SRC_NAME="ffmpeg-$SRC_VERSION"
 SRC_PATH="$SHELL_PATH/$SRC_NAME"
 #编译的平台
-ARCHS="arm64 armv7 armv7s x86_64 i386"
+ARCHS="arm64 x86_64"
 #输出路径
 PREFIX="$SHELL_PATH/ffmpeg-iOS"
 SRC_BUILD="$SHELL_PATH/ffmpeg-build"
@@ -29,7 +29,7 @@ CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --dis
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
 --disable-muxers --disable-parsers --disable-filters \
 --enable-encoder=h264,aac,libx264,pcm_*,*jpeg* \
---enable-decoder==h264,aac,pcm*,*jpeg*,hevc,amr* \
+--enable-decoder==h264,aac,pcm*,*jpeg*,hevc,amr*,adpcm* \
 --enable-muxer=h264,aac,pcm*,flv,mp4,avi,mp3 \
 --enable-parser=h264,aac,hevc,mpeg4video,*jpeg*,mpeg* \
 --enable-avfilter --enable-filter=anull"
@@ -41,7 +41,7 @@ BUILD_ARCH="all"
 fi
 if [ ! "$DEPLOYMENT_TARGET" ]
 then
-DEPLOYMENT_TARGET="9.0"
+DEPLOYMENT_TARGET="11.0"
 fi
 if [ ! "$BUILD_THIRD_LIB" ]
 then
@@ -86,15 +86,15 @@ then
 fi
 
 #是否编译speex
-if [ "$BUILD_THIRD_LIB" = "speex" ] || [ "$BUILD_THIRD_LIB" = "all" ]
-then
-    if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
-    then
-        sh $SHELL_PATH/build-speex-iOS.sh
-    fi
-    SPEEX=$SHELL_PATH/speex-iOS
-    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-libspeex --enable-encoder=libspeex --enable-decoder=libspeex"
-fi
+#if [ "$BUILD_THIRD_LIB" = "speex" ] || [ "$BUILD_THIRD_LIB" = "all" ]
+#then
+#    if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
+#    then
+#        sh $SHELL_PATH/build-speex-iOS.sh
+#    fi
+#    SPEEX=$SHELL_PATH/speex-iOS
+#    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-libspeex --enable-encoder=libspeex --enable-decoder=libspeex"
+#fi
 
 #检测并安装yasm
 if [ ! `which yasm` ]

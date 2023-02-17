@@ -7,7 +7,7 @@ SRC_VERSION="1.1.1f"
 SRC_NAME="openssl-$SRC_VERSION"
 SRC_PATH="$SHELL_PATH/$SRC_NAME"
 #编译的平台
-ARCHS="arm64 armv7 armv7s x86_64 i386"
+ARCHS="arm64 x86_64"
 #最低触发的版本
 DEPLOYMENT_TARGET="9.0"
 #输出路径

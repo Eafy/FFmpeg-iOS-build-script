@@ -1,0 +1,10 @@
+prefix=/Users/lzj/Desktop/Project/FFmpeg-iOS-build-script/4.2/opencore-amr-iOS
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: OpenCORE AMR-NB
+Description: Adaptive Multi-Rate speech codec library
+Version: 0.1.5
+Libs: -L${libdir} -lopencore-amrnb
+Cflags: -I${includedir}
