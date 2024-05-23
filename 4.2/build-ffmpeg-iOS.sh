@@ -26,14 +26,18 @@ BUILD_THIRD_LIB_COMPILE=$4
 
 CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-ffplay --disable-doc --enable-pic --enable-static --disable-shared --disable-asm --enable-hwaccels --enable-postproc"
 
-CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
---disable-muxers --disable-parsers --disable-filters \
---enable-encoder=h264,aac,libx264,pcm_*,*jpeg* \
---enable-decoder==h264,aac,pcm*,*jpeg*,hevc,amr*,adpcm* \
---enable-muxer=h264,aac,pcm*,flv,mp4,avi,mp3 \
---enable-parser=h264,aac,hevc,mpeg4video,*jpeg*,mpeg* \
---enable-avfilter --enable-filter=anull"
-#--disable-demuxers --enable-demuxer=h264,aac,hevc,pcm*,flv,hls,mp3,avi,hls,amr*,mpeg* \
+#CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders --disable-decoders \
+#--disable-muxers --disable-parsers --disable-filters \
+#--enable-encoder=h264,aac,libx264,pcm_*,*jpeg*,adpcm* \
+#--enable-decoder==h264,aac,pcm*,*jpeg*,hevc,amr*,adpcm* \
+#--enable-muxer=h264,aac,pcm*,flv,mp4,avi,mp3,wav \
+#--enable-parser=h264,aac,hevc,mpeg4video,*jpeg*,mpeg* \
+#--enable-avfilter --enable-filter=anull"
+
+#功能全打开
+CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-encoders --enable-decoders \
+--enable-muxers --enable-parsers --enable-filters \
+--enable-avfilter"
   
 if [ ! "$BUILD_ARCH" ]
 then
@@ -95,6 +99,17 @@ fi
 #    SPEEX=$SHELL_PATH/speex-iOS
 #    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-libspeex --enable-encoder=libspeex --enable-decoder=libspeex"
 #fi
+
+#是否编译lame
+if [ "$BUILD_THIRD_LIB" = "lame" ] || [ "$BUILD_THIRD_LIB" = "all" ]
+then
+    if [ "$BUILD_THIRD_LIB_COMPILE" = "yes" ]
+    then
+        sh $SHELL_PATH/build-lame-iOS.sh $BUILD_ARCH $DEPLOYMENT_TARGET
+    fi
+    MP3LAME=$SHELL_PATH/lame-iOS
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-libmp3lame --enable-encoder=libmp3lame"
+fi
 
 #检测并安装yasm
 if [ ! `which yasm` ]
@@ -201,6 +216,11 @@ do
         then
             CFLAGS="$CFLAGS -I$SPEEX/include"
             LDFLAGS="$LDFLAGS -L$SPEEX/lib"
+        fi
+        if [ "$MP3LAME" ]
+        then
+            CFLAGS="$CFLAGS -I$MP3LAME/include"
+            LDFLAGS="$LDFLAGS -L$MP3LAME/lib"
         fi
         echo CC=$CC
 

@@ -45,8 +45,6 @@ fi
 tar zxvf ${LIBSRCNAME}-${VERSION}.tar.gz -C "${CURRENTPATH}"
 cd "${CURRENTPATH}/${LIBSRCNAME}-${VERSION}"
 
-./configure
-
 for arch in $ARCHS; do
     make clean
     IOSMV=" -miphoneos-version-min=$DEPLOYMENT_TARGET"
